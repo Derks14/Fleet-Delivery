@@ -1,0 +1,232 @@
+{% extends 'dashboard/base.html' %}
+ {% block content %}
+     <div class="row">
+        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <img src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                  </a>
+                </div>
+              </div>
+            </div>
+{#            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">#}
+{#              <div class="d-flex justify-content-between">#}
+{#                <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>#}
+{#                <a href="#" class="btn btn-sm btn-default float-right">Message</a>#}
+{#              </div>#}
+{#            </div>#}
+            <div class="card-body pt-0 pt-md-4">
+              <div class="row">
+                <div class="col">
+                  <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                    <div>
+                        <i class="material-icons md-36">search</i>
+                        <span class="description">Search</span>
+                    </div>
+                    <div>
+                        <i class="material-icons md-36">local_printshop</i>
+                      <span class="description">Print</span>
+                    </div>
+                    <div>
+<i class="material-icons md-36">share</i>                      <span class="description">Share</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <hr class="my-4" />
+              <div class="text-center">
+                <div class="h5 font-weight-300">
+                    <h3>Customer Confirmation </h3>
+                    <i class="ni education_hat mr-2"></i>{{ item.tracking_number }}
+{#                  <i class="ni location_pin mr-2"></i>Bucharest, Romania#}
+                </div>
+                <div class="h5 font-weight-300">
+                    <h3> Service </h3>
+                    <i class="ni education_hat mr-2"></i> {{ item.service }}
+{#                  <i class="ni location_pin mr-2"></i>Bucharest, Romania#}
+                </div>
+                <div class="h5 font-weight-300">
+                    <h3> Weight </h3>
+                    <i class="ni education_hat mr-2"></i> {{ item.weight }}
+{#                  <i class="ni location_pin mr-2"></i>Bucharest, Romania#}
+                </div>
+                <hr class="my-4" />
+                <p>{{ item.item_description }}
+                </p>
+                <a href="#">Show more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                    <br>
+                  <h3 class="mb-0">{{ item.tracking_number }} </h3>
+                    <br>
+                </div>
+{#                <div class="col-4 text-right">#}
+{#                  <a href="#!" class="btn btn-sm btn-primary">Settings</a>#}
+{#                </div>#}
+              </div>
+            </div>
+            <div class="card-body">
+                {% with last= transits|last %}
+                <div><i class="material-icons blue48">local_shipping</i>
+                    <h1> On Route</h1>
+{#                    <p> Tuesday 15, July 2019 at 3: 15</p>#}
+                    <p>{{ last.date }}</p>
+                </div>
+                <hr class="my-4" />
+                <div class="row align-items-center">
+                    <div class="col-5">
+                       <h3>From : </h3><span><p>{{ last.pickup }}</p></span>
+                    </div>
+                    <div class="col-5">
+                        <h3>To :</h3><span><p>{{ last.destination }}</p></span>
+                    </div>
+
+                </div>
+                {% endwith %}
+            </div>
+          </div>
+            <br><br>
+            <div class="card shadow">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+{#                  <h3 class="mb-0">Page visits</h3>#}
+                </div>
+                <div class="col text-right">
+                    <h3 class="mb-0">Activity</h3>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+                {% for transit in transits reversed %}
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">{{ transit.date }}</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      {{ transit.time }}
+                    </th>
+                    <td>
+                      {{ transit.region }}
+                    </td>
+                    <td>
+                      <i class="fas fa-arrow-up text-success mr-3"></i>{{ transit.activity }}
+                    </td>
+                  </tr>
+                </tbody>
+
+                  {% endfor %}
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+{#     <div class="row mt-5">#}
+{#        <div class="col-xl-8 mb-5 mb-xl-0">#}
+{#          <div class="card shadow">#}
+{#            <div class="card-header border-0">#}
+{#              <div class="row align-items-center">#}
+{#                <div class="col">#}
+{#                  <h3 class="mb-0">Page visits</h3>#}
+{#                </div>#}
+{#                <div class="col text-right">#}
+{#                    <h3 class="mb-0">Activity</h3>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="table-responsive">#}
+{#              <!-- Projects table -->#}
+{#              <table class="table align-items-center table-flush">#}
+{#                <thead class="thead-light">#}
+{#                  <tr>#}
+{#                    <th scope="col">July 15, 2019</th>#}
+{#                    <th scope="col"></th>#}
+{#                    <th scope="col"></th>#}
+{#                  </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+{#                  <tr>#}
+{#                    <th scope="row">#}
+{#                      3:51 PM GMT#}
+{#                    </th>#}
+{#                    <td>#}
+{#                      UNITED STATES#}
+{#                    </td>#}
+{#                    <td>#}
+{#                      <i class="fas fa-arrow-up text-success mr-3"></i> ELECTRONIC NOTIFICATION RECEIVED. YOUR ORDER IS BEING PROCESSED#}
+{#                        AND TRACCKING WILL BE UPDATED SOON#}
+{#                    </td>#}
+{#                  </tr>#}
+{#                </tbody>#}
+{##}
+{#                <thead class="thead-light">#}
+{#                  <tr>#}
+{#                    <th scope="col">July 15, 2019</th>#}
+{#                    <th scope="col"></th>#}
+{#                    <th scope="col"></th>#}
+{#                    <th scope="col"></th>#}
+{#                  </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+{#                  <tr>#}
+{#                    <th scope="row">#}
+{#                      3:51 PM GMT#}
+{#                    </th>#}
+{#                    <td>#}
+{#                      UNITED STATES#}
+{#                    </td>#}
+{#                    <td>#}
+{#                      <i class="fas fa-arrow-up text-success mr-3"></i> ELECTRONIC NOTIFICATION RECEIVED. YOUR ORDER IS BEING PROCESSED#}
+{#                        AND TRACCKING WILL BE UPDATED SOON#}
+{#                    </td>#}
+{#                  </tr>#}
+{#                </tbody>#}
+{##}
+{#                <thead class="thead-light">#}
+{#                  <tr>#}
+{#                    <th scope="col">July 15, 2019</th>#}
+{#                    <th scope="col"></th>#}
+{#                    <th scope="col"></th>#}
+{#                  </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+{#                  <tr>#}
+{#                    <th scope="row">#}
+{#                        3:51 PM GMT#}
+{#                    </th>#}
+{#                    <td>#}
+{#                      UNITED STATES#}
+{#                    </td>#}
+{#                    <td>#}
+{#                      <i class="fas fa-arrow-up text-success mr-3"></i> ELECTRONIC NOTIFICATION RECEIVED. YOUR ORDER IS BEING PROCESSED#}
+{#                        AND TRACCKING WILL BE UPDATED SOON#}
+{#                    </td>#}
+{#                  </tr>#}
+{#                </tbody>#}
+{#              </table>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{% endblock content %}
+
+
+
+
