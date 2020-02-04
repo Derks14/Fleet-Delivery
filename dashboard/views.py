@@ -10,10 +10,11 @@ def index(request):
         if request.session['item_id'] is not None:
             item = Item.objects.get(id=request.session['item_id'])
             transits = item.transit.all()
-
+            last_transit = item.transit.last()
             context = {
                 'item': item,
-                'transits': transits
+                'transits': transits,
+                'last': last_transit
             }
             return render(request, 'dashboard/index.html', context)
         else:

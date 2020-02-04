@@ -76,7 +76,6 @@
               </div>
             </div>
             <div class="card-body">
-                {% with last= transits|last %}
                 <div><i class="material-icons blue48">local_shipping</i>
                     <h1> On Route</h1>
 {#                    <p> Tuesday 15, July 2019 at 3: 15</p>#}
@@ -88,11 +87,10 @@
                        <h3>From : </h3><span><p>{{ last.pickup }}</p></span>
                     </div>
                     <div class="col-5">
-                        <h3>To :</h3><span><p>{{ last.destination }}</p></span>
+                        <h3>To :</h3><span><p>{{ last.region }}</p></span>
                     </div>
 
                 </div>
-                {% endwith %}
             </div>
           </div>
             <br><br>
