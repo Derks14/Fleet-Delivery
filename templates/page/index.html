@@ -1,25 +1,11 @@
-
+{% load static %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Fleet Global Courier &reg;</title><link rel="icon"href="LOGO.png"type="image/png" />
+<title>Fleet Global Courier &reg;</title>
+    <link rel="icon"href="LOGO.png"type="image/png" />
 <style type="text/css">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 td img {display: block;}td img {display: block;}td img {display: block;}td img {display: block;}td img {display: block;}td img {display: block;}
 td img {display: block;}
@@ -163,7 +149,8 @@ function MM_swapImage() { //v3.0
   <tr>
     <td height="78">&nbsp;</td>
     <td>&nbsp;</td>
-    <td colspan="2" rowspan="3" valign="top"><a href="index.php"><img src="logo.png" width="189" height="110" border="0" /></a></td>
+    <td colspan="2" rowspan="3" valign="top"> <a href="{% url "page:index" %}">
+        <img src="{% static "dashboard/images/4169212a-fb39-40f4-8fc2-d01736e7459d_200x200.png" %}" border="0" /> </a></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
