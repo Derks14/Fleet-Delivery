@@ -1,0 +1,83 @@
+{% extends 'home/home.html' %}
+{% load static %}
+
+{% block content %}
+{#    <div class="section">#}
+    <div class="py-5">
+        <div class="container">
+          <!-- Inputs (alternative) -->
+          <div class="mb-3">
+            <small class="text-uppercase font-weight-bold">Contact Us</small>
+          </div>
+{#        </div>#}
+      </div>
+    </div>
+    <div class="section bg-secondary">
+        <div class="container">
+            <div class="row">
+              <div class="col-sm-8">
+                  <form method="post" action="{% url 'page:comment' %}">
+                      {% csrf_token %}
+                     <div class="container">
+                         <h6 class="text-uppercase text-muted">contact</h6>
+                         <h4 class="text-default text-uppercase">talk to us</h4>
+                         <br>
+                         <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="text" name="first_name" class="form-control form-control-alternative" id="exampleFormControlInput1" placeholder="firstname">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text"  name="last_name" class="form-control form-control-alternative" id="exampleFormControlInput1" placeholder="lastname">
+                            </div>
+                        </div>
+                      </div>
+                         <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                                <div class="form-group">
+                            <input type="email" name="email" class="form-control form-control-alternative" id="exampleFormControlInput1" placeholder="name@example.com">
+                          </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                                <div class="form-group">
+                            <input type="number"  name="telephone" class="form-control form-control-alternative" id="exampleFormControlInput1" placeholder="telephone">
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      <textarea class="form-control form-control-alternative"  name="comments" rows="3" placeholder="Write comments here..."></textarea>
+                     </div>
+                      <br>
+                      <br>
+                      <div class="container">
+                          <button type="submit" value="Send" class="btn btn-outline-default">Send</button>
+                      </div>
+
+                  </form>
+              </div>
+              <div class="col-sm-4">
+                  <div class="container">
+                      <h5 class="text-default text-uppercase">customer opinions</h5>
+                      <hr>
+                      <p>Fleet Global Delivery is committed to providing you with quality and professional delivery services. To better serve your delivery management and business development needs, we will highly appreciate if you would take a few minutes to share your thoughts on our service</p>
+                  </div>
+                  <br><br>
+                  <div class="container">
+                  <h5 class="text-default text-uppercase">contact and support</h5>
+                      <hr>
+                      <h5 class="text-muted text-default text-uppercase"> Address </h5>
+                      <p> 97 Street G41 OAT Glasdgow, London UK</p>
+                      <h5 class="text-muted text-default text-uppercase"> E-mail </h5>
+                      <p>info@fleetglobal-intl.ml</p>
+                  </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+{% endblock content %}

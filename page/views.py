@@ -10,23 +10,23 @@ from .models import User, Comment, Item
 
 def index(request):
     users = User.objects.all()
-    return render(request, 'page/index.html', )
+    return render(request, 'home/index.html', )
 
 
 def mail(request):
-    return render(request, 'page/mail.html')
+    return render(request, 'home/mail.html')
 
 
 def parcel(request):
-    return render(request, 'page/parcel.html')
+    return render(request, 'home/parcel.html')
 
 
 def logistics(request):
-    return render(request, 'page/logistics.html')
+    return render(request, 'home/logistics.html')
 
 
 def about(request):
-    return render(request, 'page/about.html')
+    return render(request, 'home/about.html')
 
 
 def login(request):
@@ -35,7 +35,7 @@ def login(request):
         select = item.get(tracking_number=request.POST['username'])
         item.get(serial_pin=request.POST['password'])
     except(Exception):
-        return render(request, 'page/index.html', {'error_message': "number & pin doesnt match"})
+        return render(request, 'home/index.html', {'error_message': "number & pin doesnt match"})
     else:
         # session_id = request.COOKIES['sessionid']
         # request.session['logged_in'] = session_id
@@ -44,7 +44,7 @@ def login(request):
 
 
 def contact(request):
-    return render(request, 'page/contact.html')
+    return render(request, 'home/contact.html')
 
 
 def profile(request):
@@ -57,6 +57,6 @@ def comment(request):
                            telephone=request.POST['telephone'])
         comment.save()
     except Exception:
-        return render(request, 'page/contact.html', {'error_message': "Error Occured, comment not saved"})
+        return render(request, 'home/contact.html', {'error_message': "Error Occured, comment not saved"})
     else:
-        return render(request, 'page/contact.html', {'success_message': 'Comment saved successfully'})
+        return render(request, 'home/contact.html', {'success_message': 'Comment saved successfully'})

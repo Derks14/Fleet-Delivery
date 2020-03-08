@@ -18,9 +18,9 @@ def index(request):
             }
             return render(request, 'dashboard/index.html', context)
         else:
-            return render(request, 'page/index.html')
+            return render(request, 'home/index.html')
     except KeyError:
-        return render(request, 'page/index.html')
+        return render(request, 'home/index.html')
 
 
 def logout(request):
@@ -28,7 +28,7 @@ def logout(request):
         del request.session['item_id']
     except KeyError:
         pass
-    return render(request, 'page/index.html')
+    return render(request, 'home/index.html')
 
 
 def profile(request):
@@ -44,9 +44,9 @@ def profile(request):
             }
             return render(request, 'dashboard/profile.html', context)
         else:
-            return render(request, 'page/index.html')
+            return render(request, 'home/index.html')
     except KeyError:
-        return render(request, 'page/index.html')
+        return render(request, 'home/index.html')
 
 
 def info(request):

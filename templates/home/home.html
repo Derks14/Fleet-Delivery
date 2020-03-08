@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fleet Global</title>
+
+          <link href="{% static 'dashboard/material-icons.css' %}" rel="stylesheet" />
+          <link href="{% static 'dashboard/argon-design-system.css' %}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-translucent-primary mt-4">
+          <div class="container">
+              <h6><a class="navbar-brand" href="#">Fleet Global</a></h6>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-primary">
+              <div class="navbar-collapse-header">
+                <div class="row">
+                  <div class="col-6 collapse-brand">
+                    <a href="javascript:void(0)">
+                      <img src="../../assets/img/brand/blue.png">
+                    </a>
+                  </div>
+                  <div class="col-6 collapse-close">
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
+                      <span></span>
+                      <span></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <ul class="navbar-nav ml-lg-auto">
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" role="button" data-toggle="dropdown" id="navbar_primary_dropdown_2" aria-haspopup="true" aria-expanded="false">Services</a>
+                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbar_primary_dropdown_2">
+                        <a class="dropdown-item" href="{% url 'page:mail' %}">Mail</a>
+                        <a class="dropdown-item" href="{% url 'page:parcel' %}">Parcel</a>
+                        <a class="dropdown-item" href="{% url 'page:logistics' %}">Logistics</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" id="navbar-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-primary_dropdown_1">
+                    <a class="dropdown-item" href="{% url 'page:about' %}">About Us</a>
+                    <a class="dropdown-item" href="{% url 'page:contact' %}">Contact</a>
+{#                    <div class="dropdown-divider"></div>#}
+{#                    <a class="dropdown-item" href="#">Something else here</a>#}
+                  </div>
+                </li>
+                  <li class="nav-item">
+{#                    <a class="nav-link" href="#">Track Shipment <span class="sr-only">(current)</span></a>#}
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Track Shipment</button>
+                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                              <div class="modal-content">
+                                  <div class="modal-body p-0">
+                                      <div class="card bg-secondary shadow border-0 mb-0">
+                                          <div class="card-body px-lg-5 py-lg-5">
+                                              <div class="text-center text-muted mb-4">
+                        <small>Or sign in with credentials</small>
+                      </div>
+                                              <form role="form" method="post" action="{% url 'page:login' %}">
+                                                  {% csrf_token %}
+                                                   <div class="form-group mb-3">
+                          <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                            </div>
+                            <input class="form-control" name="username" placeholder="Tracking Number" type="number">
+                          </div>
+                        </div>
+                                                  <div class="form-group">
+                                                      <div class="input-group input-group-alternative">
+                                                          <div class="input-group-prepend">
+                                                              <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                                          </div>
+                                                          <input class="form-control" name="password" placeholder="Serial No." type="password">
+                                                      </div>
+                                                  </div>
+                                                  <div class="text-center">
+                                                      <button type="submit" value="LOGIN" class="btn btn-primary my-4">TRACK</button>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+                      </div>
+                  </li>
+
+                  <!-- Modal -->
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+    {% block content %}{% endblock %}
+    <footer class="footer">
+      <div class="container">
+        <div class="row row-grid align-items-center mb-5">
+          <div class="col-lg-6">
+            <h3 class="text-primary font-weight-light mb-2">Thank you for trusting us!</h3>
+            <h4 class="mb-0 font-weight-light">Let's get in touch on any of these platforms.</h4>
+          </div>
+          <div class="col-lg-6 text-lg-center btn-wrapper">
+            <button target="_blank" href="https://twitter.com/creativetim" rel="nofollow" class="btn btn-icon-only btn-twitter rounded-circle" data-toggle="tooltip" data-original-title="Follow us">
+              <span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
+            </button>
+            <button target="_blank" href="https://www.facebook.com/CreativeTim/" rel="nofollow" class="btn-icon-only rounded-circle btn btn-facebook" data-toggle="tooltip" data-original-title="Like us">
+              <span class="btn-inner--icon"><i class="fab fa-facebook"></i></span>
+            </button>
+            <button target="_blank" href="https://dribbble.com/creativetim" rel="nofollow" class="btn btn-icon-only btn-dribbble rounded-circle" data-toggle="tooltip" data-original-title="Follow us">
+              <span class="btn-inner--icon"><i class="fa fa-dribbble"></i></span>
+            </button>
+            <button target="_blank" href="https://github.com/creativetimofficial" rel="nofollow" class="btn btn-icon-only btn-github rounded-circle" data-toggle="tooltip" data-original-title="Star on Github">
+              <span class="btn-inner--icon"><i class="fa fa-github"></i></span>
+            </button>
+          </div>
+        </div>
+        <hr>
+        <div class="row align-items-center justify-content-md-between">
+          <div class="col-md-6">
+            <div class="copyright">
+              © 2020 <a href="" target="_blank">Fleet Global</a>.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <ul class="nav nav-footer justify-content-end">
+              <li class="nav-item">
+                <a href="" class="nav-link" target="_blank">Fleet Global</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link" target="_blank">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link" target="_blank">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link" target="_blank">License</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+</div>
+
+ <script src="{% static 'dashboard/js/jquery.min.js' %}"></script>
+  <script src="{% static 'dashboard/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'dashboard/js/popper.min.js' %}"></script>
+
+  <!--   Argon JS   -->
+  <script src="{% static 'dashboard/js/argon-design-system.js' %}"></script>
+</body>
+</html>
+
+
