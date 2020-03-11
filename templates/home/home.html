@@ -10,7 +10,7 @@
           <link href="{% static 'dashboard/argon-design-system.css' %}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -20,12 +20,12 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbar-primary">
-              <div class="navbar-collapse-header">
+            <div class="collapse navbar-collapse" id="navbar-primary" data-toggle="collapse">
+              <div class="navbar-collapse-header" data-toggle="collapse">
                 <div class="row">
-                  <div class="col-6 collapse-brand">
+                  <div class="col-6 collapse-brand" data-toggle="collapse">
                     <a href="javascript:void(0)">
-                      <img src="../../assets/img/brand/blue.png">
+                      <img src="{% static 'dashboard/images/4169212a-fb39-40f4-8fc2-d01736e7459d_200x200.png' %}">
                     </a>
                   </div>
                   <div class="col-6 collapse-close">
@@ -57,7 +57,54 @@
                   <li class="nav-item">
 {#                    <a class="nav-link" href="#">Track Shipment <span class="sr-only">(current)</span></a>#}
                       <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Track Shipment</button>
+                      <button type="button" href="{% url 'page:index' %}" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Track Shipment</button>
+{#                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">#}
+{#                        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">#}
+{#                              <div class="modal-content">#}
+{#                                  <div class="modal-body p-0">#}
+{#                                      <div class="card bg-secondary shadow border-0 mb-0">#}
+{#                                          <div class="card-body px-lg-5 py-lg-5">#}
+{#                                              <div class="text-center text-muted mb-4">#}
+{#                        <small>Use our state of the art technology to check the status of the your products</small>#}
+{#                                                  <hr>#}
+{#                                                  <h6>Enter Consignment No.</h6>#}
+{#                      </div>#}
+{#                                              <form role="form" method="post" action="{% url 'page:login' %}">#}
+{#                                                  {% csrf_token %}#}
+{#                                                   <div class="form-group mb-3">#}
+{#                          <div class="input-group input-group-alternative">#}
+{#                            <div class="input-group-prepend">#}
+{#                              <span class="input-group-text"><i class="ni ni-email-83"></i></span>#}
+{#                            </div>#}
+{#                            <input class="form-control" name="username" placeholder="Tracking Number" type="number">#}
+{#                          </div>#}
+{#                        </div>#}
+{#                                                  <div class="form-group">#}
+{#                                                      <div class="input-group input-group-alternative">#}
+{#                                                          <div class="input-group-prepend">#}
+{#                                                              <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>#}
+{#                                                          </div>#}
+{#                                                          <input class="form-control" name="password" placeholder="Serial No." type="password">#}
+{#                                                      </div>#}
+{#                                                  </div>#}
+{#                                                  <div class="text-center">#}
+{#                                                      <button type="submit" value="LOGIN" class="btn btn-primary my-4">TRACK</button>#}
+{#                                                  </div>#}
+{#                                              </form>#}
+{#                                          </div>#}
+{#                                      </div>#}
+{#                                  </div>#}
+{#                              </div>#}
+{#                        </div>#}
+{#                      </div>#}
+                  </li>
+
+                  <!-- Modal -->
+
+              </ul>
+            </div>
+          </div>
+        </nav>
                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                               <div class="modal-content">
@@ -65,7 +112,9 @@
                                       <div class="card bg-secondary shadow border-0 mb-0">
                                           <div class="card-body px-lg-5 py-lg-5">
                                               <div class="text-center text-muted mb-4">
-                        <small>Or sign in with credentials</small>
+                        <small>Use our state of the art technology to check the status of the your products</small>
+                                                  <hr>
+                                                  <h6>Enter Consignment No.</h6>
                       </div>
                                               <form role="form" method="post" action="{% url 'page:login' %}">
                                                   {% csrf_token %}
@@ -95,14 +144,7 @@
                               </div>
                         </div>
                       </div>
-                  </li>
 
-                  <!-- Modal -->
-
-              </ul>
-            </div>
-          </div>
-        </nav>
     {% block content %}{% endblock %}
     <footer class="footer">
       <div class="container">
@@ -161,6 +203,11 @@
 
   <!--   Argon JS   -->
   <script src="{% static 'dashboard/js/argon-design-system.js' %}"></script>
+<script>
+    $('.navbar-nav>li>a').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+});
+</script>
 </body>
 </html>
 
